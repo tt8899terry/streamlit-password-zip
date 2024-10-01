@@ -1,10 +1,10 @@
-# Secure File Encryption and Decryption
+## Secure File Encryption and Decryption
 
 This Streamlit app allows you to securely encrypt and decrypt zip/targ files. Follow the instructions below to use the app effectively.
 
 The Encrypt file can only decrypt using this website.
 
-## Features
+### Features
 
 - **Encrypt Files**: Upload a file and encrypt it with a password.
 - **Decrypt Files**: Upload an encrypted file and decrypt it using the correct password.
@@ -12,7 +12,7 @@ The Encrypt file can only decrypt using this website.
 
 ## How to Use
 
-### Encrypting a File
+#### Encrypting a File
 
 1. **Navigate to the Encrypt Tab**:
    - Click on the "Encrypt" tab at the top of the app.
@@ -25,7 +25,7 @@ The Encrypt file can only decrypt using this website.
 5. **Download the Encrypted File**:
    - Click the "Download encrypted file" button to download the encrypted file.
 
-### Decrypting a File
+#### Decrypting a File
 
 1. **Navigate to the Decrypt Tab**:
    - Click on the "Decrypt" tab at the top of the app.
