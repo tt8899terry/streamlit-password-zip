@@ -3,10 +3,11 @@ from lib.encryption_utils import (
     encrypt_file, decrypt_data, extract_zip, extract_tar, create_zip, create_tar
 )
 from cryptography.fernet import InvalidToken
+from mainComponent.readMarkdown import ShowStMarkDown
 
 st.title("Secure File Encryption and Decryption")
 
-tabEncrypt, tabDecrypt = st.tabs(["Encrypt", "Decrypt"])
+tabEncrypt, tabDecrypt,tabReadMe = st.tabs(["Encrypt", "Decrypt","Read Me"])
 
 with tabEncrypt:
     # Upload file to encrypt
@@ -49,3 +50,5 @@ with tabDecrypt:
         except InvalidToken :
             st.error("Invalid password or corrupted file.")
 
+with tabReadMe:
+    ShowStMarkDown('markdown/readme.md')
