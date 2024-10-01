@@ -12,7 +12,8 @@ from cryptography.fernet import Fernet
 def derive_key(password):
     salt = os.getenv('ENCRYPTION_SALT', b'\x00' * 16)  # Retrieve salt from environment or use fallback
     if isinstance(salt, str):
-        salt = salt.encode()  # Ensure salt is in bytes
+        # Ensure salt is in bytes
+        salt = salt.encode() 
     kdf = PBKDF2HMAC(
         algorithm=hashes.SHA256(),
         length=32,

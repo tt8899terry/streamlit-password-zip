@@ -2,6 +2,7 @@ import streamlit as st
 from lib.encryption_utils import (
     encrypt_file, decrypt_data, extract_zip, extract_tar, create_zip, create_tar
 )
+from cryptography.fernet import InvalidToken
 
 st.title("Secure File Encryption and Decryption")
 
