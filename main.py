@@ -1,11 +1,29 @@
 import streamlit as st
+from PIL import Image
+
 from lib.encryption_utils import (
     encrypt_file, decrypt_data, extract_zip, extract_tar, create_zip, create_tar
 )
 from cryptography.fernet import InvalidToken
 from mainComponent.readMarkdown import ShowStMarkDown
 
-st.title("Secure File Encryption and Decryption")
+
+icon = Image.open("asset/favicon.ico")
+
+st.set_page_config(
+    page_title="Zip Lock",
+    page_icon=icon,
+)
+
+
+# user h1 cause markdown will have anchor
+st.html(
+'''
+<h1>
+Secure Zip File Encryption and Decryption
+</h1>
+'''
+)
 
 tabEncrypt, tabDecrypt,tabReadMe = st.tabs(["Encrypt", "Decrypt","Read Me"])
 
