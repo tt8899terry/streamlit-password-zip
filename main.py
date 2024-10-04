@@ -1,6 +1,6 @@
 import streamlit as st
 from PIL import Image
-
+import os
 from lib.encryption_utils import (
     encrypt_file, decrypt_data, extract_zip, extract_tar, create_zip, create_tar
 )
@@ -24,6 +24,9 @@ Secure Zip File Encryption and Decryption
 </h1>
 '''
 )
+
+if 'ENCRYPTION_SALT' not in os.environ:
+    st.write( 'secret is not set not set')
 
 tabEncrypt, tabDecrypt,tabReadMe = st.tabs(["Encrypt", "Decrypt","Read Me"])
 

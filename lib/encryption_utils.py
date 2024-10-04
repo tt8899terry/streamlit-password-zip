@@ -10,7 +10,8 @@ from cryptography.fernet import Fernet
 
 # Function to derive a key from the password
 def derive_key(password):
-    salt = os.getenv('ENCRYPTION_SALT', b'\x00' * 16)  # Retrieve salt from environment or use fallback
+    # Retrieve salt from environment or use fallback
+    salt = os.getenv('ENCRYPTION_SALT', b'\x00' * 16)  
     if isinstance(salt, str):
         # Ensure salt is in bytes
         salt = salt.encode() 
