@@ -33,8 +33,15 @@ tabEncrypt, tabDecrypt,tabReadMe = st.tabs(["Encrypt", "Decrypt","Read Me"])
 with tabEncrypt:
     # Upload file to encrypt
     uploaded_file = st.file_uploader("Upload a file to encrypt", type=["zip", "tar", "tar.gz"])
-    encrypt_password = st.text_input("Enter a password to encrypt the file", type="password")
+   # clear password 
+    if 'encrypt_password' not in st.session_state:
+        st.session_state.encrypt_password = None
+    def submit_password():
+        st.session_state.encrypt_password = st.session_state.encrypt_password_input
+        st.session_state.encrypt_password_input = ''
 
+    st.text_input("Enter a password to encrypt the file",key="encrypt_password_input", type="password",on_change=submit_password)
+    encrypt_password = st.session_state.encrypt_password
     if uploaded_file and encrypt_password:
         file_type = uploaded_file.name.split('.')[-1]
         encrypted_blob = encrypt_file(uploaded_file, encrypt_password, file_type)
@@ -44,8 +51,16 @@ with tabEncrypt:
 with tabDecrypt:
 # Upload encrypted file to decrypt
     uploaded_encrypted_file = st.file_uploader("Upload an encrypted file to decrypt", type=["zip", "tar.gz"], key="decrypt")
-    decrypt_password = st.text_input("Enter the password to decrypt the file", type="password", key="decrypt_password")
-    
+     # clear password 
+    if 'decrypt_password' not in st.session_state:
+        st.session_state.decrypt_password = None
+    def submit_password():
+        st.session_state.decrypt_password = st.session_state.decrypt_password_input
+        st.session_state.decrypt_password_input = ''
+
+    st.text_input("Enter the password to decrypt the file",key='decrypt_password_input', type="password",on_change=submit_password )
+    decrypt_password = st.session_state.decrypt_password
+
     if uploaded_encrypted_file and decrypt_password:
         try:
             file_type = uploaded_encrypted_file.name.split('.')[-1]
